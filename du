@@ -1,0 +1,334 @@
+need to complete Spring, sprng mvc & spring boot, angualr in june
+Swagger is used for documenting the rest apis, It provies and easy way to share	API documentaation among developers and product managers and QA.
+
+Spring core :core  bean context spEL
+data access n integration : jdbc,orm,jms, oxm
+WEB: web servlet, portlet, websocket
+ 
+#2 Spring IOC Container: its pre definend program , It does 3 works Create the object, hold them in memory, inject them in another object as required, mainly it maintains object lifecycle from start to distruction.. it requires two inputs beans n config
+
+#3 ApplicationContext is an interface which extends beanFactory
+
+#4 ApplicationContext has 3 classess ClasspathXMLApplicationContext AnnotationConfigApplicationContext, FileSystemXMLApplication	
+
+#5 Ways of dependency injection : setter injection, constructor injection	
+   5.1 handles primtitives data types: byte, short, int, long, float, double, char, boolean;
+   5.2 handles copllection data types : List, Set, Map n Properties
+   5.3 handles Reference type : user dfine object
+   5.3 if you used<property> tage inside config.xml filethat means u r using setter injection
+ 
+#7 There are 3mthds to inject values in setter injection : value as element <property name="><value></value></property> ex <property name="studentId" 	value="2345"/>, 2nd valueas attribute, 3rd using p shema  ex: <bean class="com.springcore.Student" name="student1" p:studentId="2344" p:studentName="Ram singh" p:studentAddress="Mumbai"/>
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#8 How to inject collection types: list duplicates allowed set no dupicates allowed		
+#11 constuctor injection :			
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+18-06-2021
+
+Streams Versus Collections
+Both the existing Java notion of collections and the new notion of streams provide interfaces to a sequence of elements. So what’s the difference? In a nutshell, collections are about data and streams are about computations.
+
+Consider a movie stored on a DVD. This is a collection (perhaps of bytes or perhaps of frames—we don’t care which here) because it contains the whole data structure. Now consider watching the same video when it is being streamed over the internet. It is now a stream (of bytes or frames). The streaming video player needs to have downloaded only a few frames in advance of where the user is watching, so you can start displaying values from the beginning of the stream before most of the values in the stream have even been computed (consider streaming a live football game).
+
+In the coarsest terms, the difference between collections and streams has to do with when things are computed. A collection is an in-memory data structure, which holds all the values that the data structure currently has—every element in the collection has to be computed before it can be added to the collection. In contrast, a stream is a conceptually fixed data structure in which elements are computed on demand.
+
+++++++++++++++++++++++++++++++++++++++++++19-06-2021++++++++++++++++++++++++Spring Life Cycle Methods+++++++++++++
+Spring provides two important methods to every Bean ( public void init(), public void destroy()), we can change init and destroy names but signature must be same like public void start(), publc void finish();
+ 
+
+Configure technique: XML, Spring Interface, Annotation
+
+Implementing Lifecycyle methods of spring bean Using XML
+
+
++++++++++++++++++++++++++++++++++++++++++++++15vi
+implementing Bean Lifecycyle using interfaces intializingBean DisposableBean
+
++++++++++++++++++++++++++++++++++++++++++++++16th
+implementing Bean Lifecycyle using Annotation
+@PostConstruct   like init  @PreDestroy to activate this we need to use <context:annotation-config/> 
+
++++++++++++++++++++++++++++++++++++++++++++++17th
+Autowiring advantages: Automatic, less code
+Automiring disadvantages : No control of programmer , I it cant be used for primitive and String values
+
+Autowiring can't be used to inject primitive and string values. It works with reference only. Injected referance need to have a class which is object. you can use wrapper for same.
+
+
+######################################################################
+STREAM API JAVA 8
+#####################################################################
+referance : https://youtu.be/CwOfjXPL6-Q
+1.These streams are related to collections frameworks/(group of object). These streams are very different from io stream, io streams are the sequenceof data  
+
+2.introduced in java 1.8
+3. Aram API is basically used to perfomrs bulk operation and process the objects of collections 
+4. STREAM reduced the code length 
+5. Stream is an interface so we wont be able to create interface 
+6. stream methods : filter(predicate) , predicateis nth but a boolean value function , if predicate value is TRUE then it will filter the elment otherwise skips, predicte retuns TRUE n FALSE
+. map(function): fuction reurns value
+
+
+################30-06-21TRICKS    ##########
+1)To open angular project in VS code from file explorer open power shell command by typing shift+right click---> open powershell here then type code . and press enter 
+2) open powershell use idea64 to open eclipse
+3) ctrl+b = full screen in vs-code
+################################################Episode #10 - Angular CLI 
+
+Angular CLI - Command Line Interface 
+
+    - schematics -> angular.json / package.json 
+        ng serve 
+        ng build
+        ng test 
+        ng lint 
+        ng e2e 
+    - commands 
+
+        ng new <project_name>
+
+        ng generate component <component_name>
+        ng generate module <module_name>
+        ng generate pipe <pipe_name>
+        ng generate directive 
+    
+    angular.json 
+
+        demo 
+            ng serve 
+            ng test 
+                - test and run all our unit test scripts 
+
+            ng e2e 
+                - test and run all our end to end tests 
+
+            ng lint 
+
+            ng build 
+                -> build your app and make it ready for production env deployment
+                 -> dist <simpleCRM>
+                    vendor.js
+                    main.js 
+                    style.css
+
+            ng generate 
+            ng g 
+                components 
+                pipes
+                modules 
+                services 
+                directives 
+                applications 
+######################################NG EP 11
+CRM Application 
+
+    src 
+        contacts -> Module
+            add-contact -> components inside module 
+            edit-contact -> components inside module 
+            delete-contact -> components inside module 
+            view-contact -> components inside module 
+        users
+            add-user -> components inside module 
+        orders
+        leads
+        reports
+        settings
+        profile
+
+        shared
+            auth
+            tokens
+
+        services -> HTTP/ Resuable code
+            contact-service.ts 
+            user-service.ts
+
+        assets
+            images
+            mock-data 
+
+        pipes 
+            highlight-pipe 		
+######################################Angular Modules  NG notes EP 12 #######################	
+  1. Angular is a modular-based architecture 
+    - There are lot of modules which are built-in 
+    - Examples 
+        - BrowserModule
+        - BrowserAnimationsModule
+
+    - Angular Material Library
+        - MatButtonModule
+        - MatDropDownModule 
+
+2. All the code and functionality is grouped in a module 
+
+3. Whenever you see a @ symbol - it's a decorator 
+
+4. What modules consist
+    - declarations
+        - this is where we will add all the components of the module 
+    - imports 
+        - we can import modules inside a module 
+    
+    - providers 
+        - services that we need will be injected here 
+    
+    - Bootstrap 
+        - what is the first component, the module should load 
+
+    - exports   
+        - is to export and expose the component outside of the module  
+
+5. Every Angular application should have atleast 1 module 
+
+6. By default, the Angular framework provides us with AppModule 
+
+7. The AppModule will have a component by the name 
+    - AppComponent 
+    
+8. Whenever we are building Angular applications 
+    - We will always think of Modules first 
+
+    E.g     
+        Contacts
+        Users 
+        Leads
+        Opportunites
+        Settings 
+        Profile 
+        Authenctication
+
+    Free User 
+        Contacts
+        Users 
+    Premium User 
+        Contacts
+        Users 
+        Leads
+        Opportunites
+    Enterprise Users 
+        Contacts
+        Users 
+        Leads
+        Opportunites
+        Settings 
+        Profile 
+        Authenctication
+
+9. Feature Modules 
+    - You can turn on or off the modules based on conditions 
+
+10. Modules - Grouping 
+    - components 
+    - services 
+    - pipes
+    - directives 
+
+11. Create a custom Module 
+    ng generate module contacts
+    ng generate module leads
+    ng generate module settings
+    ng generate module Opportunites
+    ng generate module authentication 
+
+###################################### NG notes EP 13 components ############
+1. Components are the most important and basic building blocks of Angular apps 
+
+2. Authentication Module 
+    - new-user 
+    - login 
+    - forgot-password
+    - reset-password 
+
+3. Component is a smallest functionality that you will implement in your application 
+
+4. When we group multiple Components it becomes a module 
+
+5. We can have paren-child relationship of components 
+
+6. We can have components inside components 
+
+7. Tree-herirachy of components 
+
+    Dashboard 
+        display-contact-list 
+            contact-grid
+                contact-import 
+                contact-export  
+            contact-options
+            
+8. lets create some custom components 
+    ng g component add-contact 
+    ng g component edit-contact
+    ng g component list-contacts 
+    ng g component delete-contact 
+
+9. Every component has 4 files auto-generated with it 
+    - component.html -> view or html or template file -> UI 
+    - component.ts -> it will be a class file which will have methods -> Logic 
+    - component.spec.ts -> It will have the unit test script for component 
+    - component.scss -> stylesheet of the component 
+
+    HOMEWORK    
+        -> verify all the components generated and go through the code 
+
+10. Component decorator inside the component.ts file 
+
+    selector -> unique identifier for the component
+        -> id of the component 
+        -> using this selector we will use the component  
+    templateUrl -> your HTML code 
+        - component.html file 
+    styleURLS -> for linking your component stylesheet 
+        - component.scss 		
+###################################### NG notes EP 14 Component Lifecycle Hooks #######################
+Angular component lifecycle hooks 
+
+1. By default we have ngonit 
+
+2. Whichever lifecycle hooks we want to use
+    1. import it in the class 
+    2. Extend the implements interface 
+    3. Implement the method  
+
+3. We can have any number of lifecycle hooks implemented 
+
+4. Its too early for us to implement all of them today 
+
+    - We will revisit this topic again component communication 
+
+    - Component Communication 
+        - Between components 
+            Parent to Child 
+            Child to Parent 
+			
+###################################### NG notes EP 15 Communication between various Angular components  #######################
+https://www.concretepage.com/angular-2/angular-2-ngclass-example
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
